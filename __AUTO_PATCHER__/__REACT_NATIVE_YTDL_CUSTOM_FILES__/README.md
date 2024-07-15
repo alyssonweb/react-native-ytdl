@@ -2,7 +2,7 @@
 
 YouTube video and audio stream extractor for react native.
 
-This module is a port of [ytdl-core](https://github.com/fent/node-ytdl-core). All the functionality was ported successfully except for a couple of methods which react native does not support(such as node's streaming api).
+This module is a port of [ytdl-core](https://github.com/distubejs/ytdl-core). All the functionality was ported successfully except for a couple of methods which react native does not support(such as node's streaming api).
 
 # Installation
 
@@ -52,7 +52,7 @@ Attempts to get a downloadable link from the given YouTube URL. Returns a list o
   * This downloads a portion of the file, and not a separately spliced video.
 * `begin` - What time in the video to begin. Supports formats `00:00:00.000`, `0ms, 0s, 0m, 0h`, or number of milliseconds. Example: `1:30`, `05:10.123`, `10m30s`.
   * For live videos, this also accepts a unix timestamp or Date object, and defaults to `Date.now()`.
-  * This option is not very reliable for non-live videos, see [#129](https://github.com/fent/node-ytdl-core/issues/129), [#219](https://github.com/fent/node-ytdl-core/issues/219).
+  * This option is not very reliable for non-live videos, see [#129](https://github.com/distubejs/ytdl-core/issues/129), [#219](https://github.com/distubejs/ytdl-core/issues/219).
 * `requestOptions` - Anything to merge into the request options which [fetch](https://reactnative.dev/docs/network) is called with, such as `headers`.
 * `highWaterMark` - How much of the video download to buffer into memory. See [node's docs](https://nodejs.org/api/stream.html#stream_constructor_new_stream_writable_options) for more. Defaults to 512KB.
 * `lang` - The 2 character symbol of a language. Default is `en`.
@@ -113,9 +113,9 @@ Throws an Error if it fails to parse an ID.
 ## Limitations
 
 ytdl cannot download videos that fall into the following
-* Regionally restricted (requires a [proxy](https://github.com/fent/node-ytdl-core/example/proxy.js))
-* Private (if you have access, requires [cookies](https://github.com/fent/node-ytdl-core/example/cookies.js))
-* Rentals (if you have access, requires [cookies](https://github.com/fent/node-ytdl-core/example/cookies.js))
+* Regionally restricted (requires a [proxy](https://github.com/distubejs/ytdl-core/example/proxy.js))
+* Private (if you have access, requires [cookies](https://github.com/distubejs/ytdl-core/example/cookies.js))
+* Rentals (if you have access, requires [cookies](https://github.com/distubejs/ytdl-core/example/cookies.js))
 
 Generated download links are valid for 6 hours, for the same IP address.
 
@@ -131,13 +131,13 @@ If you'd like to help fix the issue, look at the type of error first. If you're 
 
     Could not extract signature deciphering actions
 
-Run the tests at `test/irl-test.js` located on [the original node implementation ytdl-core](https://github.com/fent/node-ytdl-core) just to make sure that this is actually an issue with ytdl-core.
+Run the tests at `test/irl-test.js` located on [the original node implementation ytdl-core](https://github.com/distubejs/ytdl-core) just to make sure that this is actually an issue with ytdl-core.
 
     mocha test/irl-test.js
 
 These tests are not mocked, and they try to start downloading a few videos. If these fail, then it's time to debug.
 
-For getting started with that, you can look at the `extractActions()` function in [`/lib/sig.js`](https://github.com/fent/node-ytdl-core/blob/master/lib/sig.js).
+For getting started with that, you can look at the `extractActions()` function in [`/lib/sig.js`](https://github.com/distubejs/ytdl-core/blob/master/lib/sig.js).
 
 For the sake of fast development time, It is better to debug on node than it is on react-native. When ytdl-core is working as expected, then you can port the necessary changes into react-native-ytdl
 
@@ -157,7 +157,7 @@ Make sure you're installing the latest version of react-native-ytdl to keep up w
 
 # Related Projects
 
-- [ytdl-core](https://github.com/fent/node-ytdl-core) - The original node ytdl implementation.
+- [ytdl-core](https://github.com/distubejs/ytdl-core) - The original node ytdl implementation.
 - [ytdl](https://github.com/fent/node-ytdl) - A cli wrapper of this.
 - [pully](https://github.com/JimmyBoh/pully) - Another cli wrapper of this aimed at high quality formats.
 - [ytsr](https://github.com/TimeForANinja/node-ytsr) - YouTube video search results.
